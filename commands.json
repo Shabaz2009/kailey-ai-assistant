@@ -1,0 +1,338 @@
+{
+  "youtube": {
+    "action": "open_url",
+    "target": "https://www.youtube.com",
+    "description": "Open YouTube",
+    "category": "apps"
+  },
+  "open youtube": {
+    "action": "open_url",
+    "target": "https://www.youtube.com",
+    "description": "Open YouTube",
+    "category": "apps"
+  },
+  "youtube search": {
+    "action": "youtube_search",
+    "target": "",
+    "description": "Search YouTube",
+    "category": "apps"
+  },
+  "wikipedia": {
+    "action": "wikipedia_search",
+    "target": "",
+    "description": "Search Wikipedia",
+    "category": "info"
+  },
+  "google": {
+    "action": "open_url",
+    "target": "https://www.google.com",
+    "description": "Open Google",
+    "category": "apps"
+  },
+  "search": {
+    "action": "web_search",
+    "target": "",
+    "description": "Google search",
+    "category": "apps"
+  },
+  "gmail": {
+    "action": "open_url",
+    "target": "https://mail.google.com",
+    "description": "Open Gmail",
+    "category": "apps"
+  },
+  "github": {
+    "action": "open_url",
+    "target": "https://github.com",
+    "description": "Open GitHub",
+    "category": "apps"
+  },
+  "whatsapp": {
+    "action": "open_url",
+    "target": "https://web.whatsapp.com",
+    "description": "Open WhatsApp",
+    "category": "apps"
+  },
+  "instagram": {
+    "action": "open_url",
+    "target": "https://www.instagram.com",
+    "description": "Open Instagram",
+    "category": "apps"
+  },
+  "twitter": {
+    "action": "open_url",
+    "target": "https://twitter.com",
+    "description": "Open Twitter/X",
+    "category": "apps"
+  },
+  "spotify": {
+    "action": "open_url",
+    "target": "https://open.spotify.com",
+    "description": "Open Spotify",
+    "category": "apps"
+  },
+  "netflix": {
+    "action": "open_url",
+    "target": "https://www.netflix.com",
+    "description": "Open Netflix",
+    "category": "apps"
+  },
+  "maps": {
+    "action": "open_url",
+    "target": "https://maps.google.com",
+    "description": "Open Maps",
+    "category": "apps"
+  },
+  "translate": {
+    "action": "open_url",
+    "target": "https://translate.google.com",
+    "description": "Open Translate",
+    "category": "apps"
+  },
+  "news": {
+    "action": "open_url",
+    "target": "https://news.google.com",
+    "description": "Open News",
+    "category": "apps"
+  },
+  "reddit": {
+    "action": "open_url",
+    "target": "https://www.reddit.com",
+    "description": "Open Reddit",
+    "category": "apps"
+  },
+  "notepad": {
+    "action": "open_app",
+    "target": "notepad.exe",
+    "description": "Open Notepad",
+    "category": "apps"
+  },
+  "calculator": {
+    "action": "open_app",
+    "target": "calc.exe",
+    "description": "Open Calculator",
+    "category": "apps"
+  },
+  "file explorer": {
+    "action": "open_app",
+    "target": "explorer.exe",
+    "description": "Open File Explorer",
+    "category": "apps"
+  },
+  "task manager": {
+    "action": "open_app",
+    "target": "taskmgr.exe",
+    "description": "Open Task Manager",
+    "category": "apps"
+  },
+  "command prompt": {
+    "action": "open_app",
+    "target": "cmd.exe",
+    "description": "Open CMD",
+    "category": "apps"
+  },
+  "terminal": {
+    "action": "open_app",
+    "target": "cmd.exe",
+    "description": "Open Terminal",
+    "category": "apps"
+  },
+  "chrome": {
+    "action": "open_app",
+    "target": "chrome.exe",
+    "description": "Open Chrome",
+    "category": "apps"
+  },
+  "vscode": {
+    "action": "open_app",
+    "target": "code.exe",
+    "description": "Open VS Code",
+    "category": "apps"
+  },
+  "paint": {
+    "action": "open_app",
+    "target": "mspaint.exe",
+    "description": "Open Paint",
+    "category": "apps"
+  },
+  "settings": {
+    "action": "open_app",
+    "target": "ms-settings:",
+    "description": "Open Settings",
+    "category": "apps"
+  },
+  "volume up": {
+    "action": "volume_up",
+    "target": "10",
+    "description": "Volume up 10%",
+    "category": "system"
+  },
+  "volume down": {
+    "action": "volume_down",
+    "target": "10",
+    "description": "Volume down 10%",
+    "category": "system"
+  },
+  "volume full": {
+    "action": "volume_set",
+    "target": "100",
+    "description": "Volume 100%",
+    "category": "system"
+  },
+  "mute": {
+    "action": "volume_mute",
+    "target": "",
+    "description": "Mute",
+    "category": "system"
+  },
+  "brightness up": {
+    "action": "brightness_up",
+    "target": "10",
+    "description": "Brightness up 10%",
+    "category": "system"
+  },
+  "brightness down": {
+    "action": "brightness_down",
+    "target": "10",
+    "description": "Brightness down 10%",
+    "category": "system"
+  },
+  "screenshot": {
+    "action": "screenshot",
+    "target": "",
+    "description": "Take screenshot",
+    "category": "system"
+  },
+  "lock": {
+    "action": "lock_screen",
+    "target": "",
+    "description": "Lock screen",
+    "category": "system"
+  },
+  "shutdown": {
+    "action": "shutdown",
+    "target": "",
+    "description": "Shutdown PC",
+    "category": "system"
+  },
+  "restart": {
+    "action": "restart",
+    "target": "",
+    "description": "Restart PC",
+    "category": "system"
+  },
+  "sleep": {
+    "action": "sleep",
+    "target": "",
+    "description": "Sleep PC",
+    "category": "system"
+  },
+  "close window": {
+    "action": "key_combo",
+    "target": "alt+f4",
+    "description": "Close window",
+    "category": "system"
+  },
+  "minimize": {
+    "action": "key_combo",
+    "target": "win+d",
+    "description": "Minimize all",
+    "category": "system"
+  },
+  "switch window": {
+    "action": "key_combo",
+    "target": "alt+tab",
+    "description": "Switch window",
+    "category": "system"
+  },
+  "copy": {
+    "action": "key_combo",
+    "target": "ctrl+c",
+    "description": "Copy",
+    "category": "system"
+  },
+  "paste": {
+    "action": "key_combo",
+    "target": "ctrl+v",
+    "description": "Paste",
+    "category": "system"
+  },
+  "type": {
+    "action": "type_text",
+    "target": "",
+    "description": "Type text",
+    "category": "system"
+  },
+  "open": {
+    "action": "open_anything",
+    "target": "",
+    "description": "Smart open - auto-detects app or URL",
+    "category": "system"
+  },
+  "app launcher": {
+    "action": "app_launcher",
+    "target": "",
+    "description": "Open installed app",
+    "category": "system"
+  },
+  "time": {
+    "action": "tell_time",
+    "target": "",
+    "description": "Current time",
+    "category": "info"
+  },
+  "date": {
+    "action": "tell_date",
+    "target": "",
+    "description": "Current date",
+    "category": "info"
+  },
+  "weather": {
+    "action": "weather",
+    "target": "",
+    "description": "Weather info",
+    "category": "info"
+  },
+  "cpu": {
+    "action": "cpu_status",
+    "target": "",
+    "description": "CPU usage",
+    "category": "info"
+  },
+  "memory": {
+    "action": "memory_status",
+    "target": "",
+    "description": "RAM usage",
+    "category": "info"
+  },
+  "battery": {
+    "action": "battery_status",
+    "target": "",
+    "description": "Battery status",
+    "category": "info"
+  },
+  "system info": {
+    "action": "system_info",
+    "target": "",
+    "description": "Full system info",
+    "category": "info"
+  },
+  "play music": {
+    "action": "open_url",
+    "target": "https://www.youtube.com/results?search_query=music+lofi",
+    "description": "Play music",
+    "category": "apps"
+  },
+  "stop listening": {
+    "action": "stop_listening",
+    "target": "",
+    "description": "Stop voice input",
+    "category": "system"
+  },
+  "cancel shutdown": {
+    "action": "cancel_shutdown",
+    "target": "",
+    "description": "Cancel shutdown",
+    "category": "system"
+  }
+}

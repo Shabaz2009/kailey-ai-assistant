@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+config.json
+temp_audio/
+screenshots/
+scratch/
+memory/
+models/
+test.mp3
+
+*.log
+.DS_Store
