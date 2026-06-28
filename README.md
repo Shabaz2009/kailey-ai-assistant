@@ -240,20 +240,22 @@ mypy kailey.py wake_listener.py
 
 MIT License — see [LICENSE](LICENSE) for details.
 
-Copyright (c) 2026 [Shabaz2009](https://github.com/Shabaz2009)
+Copyright (c) 2026 Shabaz2009
 
 ---
 
-## 🙏 Acknowledgments
+## 🙏 Thanks
 
-- [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper) — local Whisper inference
-- [Vosk](https://alphacephei.com/vosk/) — offline speech recognition
-- [Edge-TTS](https://github.com/rany2/edge-tts) — Microsoft neural voices
-- [Ollama](https://ollama.ai/) — local LLM runtime
-- [pycaw](https://github.com/AndreMiras/pycaw) — Windows audio control
+This project builds on some great open-source tools:
+
+- [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper) for local speech recognition
+- [Vosk](https://alphacephei.com/vosk/) for offline speech recognition  
+- [Edge-TTS](https://github.com/rany2/edge-tts) for natural-sounding voices
+- [Ollama](https://ollama.ai/) for running AI models locally
+- [pycaw](https://github.com/AndreMiras/pycaw) for Windows audio control
 
 ---
 
 <p align="center">
-  <strong>Made with ❤️ for Windows voice automation</strong>
+  <strong>Made by Shabaz</strong>
 </p>
