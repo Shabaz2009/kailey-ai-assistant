@@ -1,73 +1,259 @@
 # Kailey AI Assistant
 
-Kailey is a Windows-focused Python voice assistant that combines wake-word detection, speech recognition, text-to-speech, app automation, and optional AI backends in a desktop interface.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" alt="Python Version">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white" alt="Platform">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status">
+  <img src="https://img.shields.io/github/last-commit/Shabaz2009/kailey-ai-assistant" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/Shabaz2009/kailey-ai-assistant?style=social" alt="Stars">
+</p>
 
-## Features
+<p align="center">
+  <strong>A Windows-native Python voice assistant with wake-word detection, speech recognition, text-to-speech, app automation, and AI backends.</strong>
+</p>
 
-- Wake-word listener that can launch the main app in the background
-- Desktop assistant UI for voice input, command execution, and AI responses
-- Offline and online speech recognition support
-- Multiple text-to-speech options, including Edge TTS and pyttsx3
-- Voice command automation for apps, web actions, and system controls
-- Support for local and cloud AI backends such as Ollama, Gemini, OpenAI-compatible servers, and custom endpoints
-- Low-end mode options for older or slower Windows PCs
-- Persistent custom commands and settings
+---
 
-## Project Structure
+## ✨ Features
 
-- `kailey.py` - main desktop assistant application
-- `wake_listener.py` - lightweight wake-word listener
-- `commands.json` - built-in and custom command mappings
-- `config.json` - local runtime settings generated on first run
-- `requirements.txt` - Python dependencies
-- `start_kailey.bat`, `launch.bat`, `setup.bat` - Windows launch and setup helpers
-- `models/` - optional local speech recognition models
-- `greeting_sounds/` - optional greeting audio assets
+| Category | Capabilities |
+|----------|--------------|
+| **🎤 Voice Interface** | Wake-word listener (`wake_listener.py`), real-time STT, multiple TTS engines |
+| **🤖 AI Backends** | Ollama (local), Gemini, OpenAI-compatible, Custom endpoints, LocalAI/LM Studio |
+| **🎯 Speech Recognition** | Faster-Whisper (local), Vosk (offline), Google STT (online), auto-fallback |
+| **🔊 Text-to-Speech** | Edge TTS (neural voices), pyttsx3 (offline SAPI5), Windows SAPI fallback |
+| **⚡ Automation** | App launching, web actions, system controls (volume, brightness, power), hotkeys |
+| **💻 Low-End Support** | Optimized modes for older hardware, reduced CPU/RAM usage |
+| **🔧 Extensible** | Custom commands via `commands.json`, persistent settings in `config.json` |
+| **🖥️ Desktop UI** | Tkinter-based HUD with live transcript, command log, and settings panel |
 
-## Quick Start
+---
 
-### 1. Install dependencies
+## 📁 Project Structure
+
+```
+Kailey/
+├── kailey.py              # Main desktop assistant application
+├── wake_listener.py       # Lightweight background wake-word listener
+├── commands.json          # Built-in + custom voice command mappings
+├── config.json            # Runtime settings (auto-generated, gitignored)
+├── requirements.txt       # Python dependencies
+├── PROJECT_DETAILS.md     # Technical documentation & changelog
+├── LICENSE                # MIT License
+├── README.md              # This file
+│
+├── 📁 Launch Scripts (Windows)
+│   ├── start_kailey.bat   # Primary launcher (venv + app)
+│   ├── launch.bat         # Alternative launcher
+│   └── setup.bat          # First-time setup helper
+│
+├── 📁 Utility Scripts
+│   ├── extract_vosk.bat   # Vosk model extractor
+│   ├── install_phi3.bat   # Phi-3 model installer
+│   └── copy_to_downloads.bat
+│
+├── 📁 Test Scripts
+│   ├── test_audio.py      # Microphone/STT test
+│   ├── test_gemini.py     # Gemini API test
+│   └── test_voice.py      # TTS engine test
+│
+└── 📁 Assets (gitignored)
+    ├── models/            # Vosk/Whisper models
+    ├── greeting_sounds/   # Custom greeting audio
+    ├── temp_audio/        # TTS cache
+    ├── memory/            # Conversation history
+    └── screenshots/       # UI captures
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Windows 10/11** (primary target)
+- **Python 3.10+**
+- Microphone access
+
+### 1. Clone & Setup
 
 ```bash
+git clone https://github.com/Shabaz2009/kailey-ai-assistant.git
+cd kailey-ai-assistant
+
+# Create virtual environment
 python -m venv venv
 venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Run the assistant
+> **Windows users:** Run `setup.bat` for automated setup.
 
-```bash
-python kailey.py
+### 2. Configure (Optional)
+
+On first run, `config.json` is created with safe defaults. Edit it to add API keys:
+
+```json
+{
+  "gemini_api_key": "YOUR_KEY_HERE",
+  "openai_api_key": "YOUR_KEY_HERE",
+  "ollama_url": "http://localhost:11434",
+  "recognition_mode": "local_whisper",
+  "voice_engine": "edge_tts",
+  "low_end_mode": true
+}
 ```
 
-Or on Windows, use:
+### 3. Run the Assistant
 
-```bat
+```bash
+# Main app
+python kailey.py
+
+# Or use the Windows launcher
 start_kailey.bat
 ```
 
-### 3. Run the wake-word listener
+### 4. Run Wake-Word Listener (Background)
 
 ```bash
 python wake_listener.py
 ```
 
-## Configuration
+Say **"Kailey"** (or variants: *kali, kaylee, kelly, kylie, hailey, daily, clearly*) to activate.
 
-Kailey loads its settings from `config.json`. If the file does not exist, the app creates it from safe defaults on first launch.
+---
 
-Recommended local setup:
+## ⚙️ Configuration Guide
 
-- Keep API keys and personal settings in your local `config.json`
-- Use `low_end_mode=true` on older hardware
-- Set `recognition_mode` based on your preferred speech engine
+### Speech Recognition (`recognition_mode`)
 
-## Notes
+| Mode | Engine | Offline | Best For |
+|------|--------|---------|----------|
+| `local_whisper` | Faster-Whisper + fallback | ✅ | Accuracy + offline |
+| `offline` / `auto` | Vosk | ✅ | Fully offline, low resources |
+| `online` | Google STT | ❌ | Maximum accuracy, requires internet |
 
-- This repository is designed for Windows
-- Large generated files, local models, and personal runtime data are excluded from version control
-- The repository uses the MIT License
+### AI Backends (`ai_mode`)
 
-## License
+| Mode | Description | Config Keys |
+|------|-------------|-------------|
+| `ollama` | Local Ollama server | `ollama_url`, `ollama_model` |
+| `ollama_hybrid` | Local + cloud fallback | `ollama_*` + `ollama_cloud_*` |
+| `gemini` | Google Gemini API | `gemini_api_key`, `gemini_model` |
+| `openai` | OpenAI API | `openai_api_key`, `openai_model` |
+| `local_ai` | OpenAI-compatible (LM Studio, LocalAI) | `local_ai_url`, `local_ai_key`, `local_ai_model` |
+| `custom` | Custom OpenAI-compatible endpoint | `custom_ai_url`, `custom_ai_key`, `custom_ai_model` |
 
-MIT License. See the [LICENSE](LICENSE) file for details.
+### Voice Settings
+
+```json
+{
+  "voice_engine": "edge_tts",
+  "edge_voice_id": "en-US-JennyNeural",
+  "edge_voice_rate": "-5%",
+  "edge_voice_pitch": "+1Hz",
+  "pyttsx3_rate": 175,
+  "pyttsx3_volume": 1.0
+}
+```
+
+### Low-End Mode
+
+Enable `low_end_mode: true` for:
+- Shorter STT capture windows
+- Non-streaming Ollama responses
+- Reduced UI update frequency
+- Lower Whisper model (`small.en`)
+
+---
+
+## 🎮 Built-in Commands
+
+| Category | Examples |
+|----------|----------|
+| **Apps** | `youtube`, `github`, `spotify`, `notepad`, `calculator`, `vscode`, `chrome` |
+| **System** | `volume up/down`, `brightness up/down`, `screenshot`, `lock`, `shutdown`, `restart` |
+| **Web** | `google`, `search <query>`, `youtube search <query>`, `gmail`, `maps` |
+| **Info** | `time`, `date`, `weather`, `cpu`, `memory`, `battery`, `system info` |
+| **Control** | `stop listening`, `cancel shutdown` |
+
+> Add your own in `commands.json` or via the Settings UI.
+
+---
+
+## 🛠️ Development
+
+### Run Tests
+
+```bash
+python test_audio.py      # Microphone + STT
+python test_voice.py      # TTS engines
+python test_gemini.py     # Gemini API
+```
+
+### Code Style
+
+```bash
+# Type checking (optional)
+pip install mypy
+mypy kailey.py wake_listener.py
+```
+
+---
+
+## 📦 Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `speechrecognition` | STT abstraction |
+| `pyaudiowpatch` | Audio capture (Windows loopback) |
+| `faster-whisper` | Local Whisper inference |
+| `vosk` | Offline STT |
+| `edge-tts` | Neural TTS |
+| `pyttsx3` | Offline TTS fallback |
+| `pygame` | Audio playback |
+| `pycaw` | Windows volume control |
+| `screen-brightness-control` | Windows brightness |
+| `psutil` | System stats |
+| `pyautogui` | Hotkey automation |
+| `requests` | HTTP for AI APIs |
+| `wikipedia` | Wiki search |
+
+---
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Wake word not detected | Check `wake_listener.py` logs; ensure mic works; try `offline` mode |
+| STT returns empty | Try `recognition_mode: "online"`; check microphone permissions |
+| TTS silent | Verify `voice_engine`; install `edge-tts` or check `pyttsx3` voices |
+| Ollama connection failed | Ensure `ollama serve` runs; check `ollama_url` in config |
+| High CPU on old PC | Enable `low_end_mode: true`; use `vosk` model; reduce Whisper model size |
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+Copyright (c) 2026 [Shabaz2009](https://github.com/Shabaz2009)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper) — local Whisper inference
+- [Vosk](https://alphacephei.com/vosk/) — offline speech recognition
+- [Edge-TTS](https://github.com/rany2/edge-tts) — Microsoft neural voices
+- [Ollama](https://ollama.ai/) — local LLM runtime
+- [pycaw](https://github.com/AndreMiras/pycaw) — Windows audio control
+
+---
+
+<p align="center">
+  <strong>Made with ❤️ for Windows voice automation</strong>
+</p>
